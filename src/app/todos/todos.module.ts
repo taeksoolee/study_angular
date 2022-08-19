@@ -10,13 +10,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TodoPostComponent } from './todo-post/todo-post.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { TodoExamComponent } from './todo-exam/todo-exam.component';
+import { TodoFormModifyComponent } from './todo-form-modify/todo-form-modify.component';
+import { TodoFormCreateComponent } from './todo-form-create/todo-form-create.component';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
   ],
-  declarations: [TodoItemComponent, TodosPageComponent, TodoListComponent, TodoDetailComponent, TodoPostComponent, TodoFormComponent, TodoExamComponent],
+  declarations: [TodoItemComponent, TodosPageComponent, TodoListComponent, TodoDetailComponent, TodoPostComponent, TodoFormComponent, TodoExamComponent, TodoFormModifyComponent, TodoFormCreateComponent],
   exports: [TodosPageComponent],
   providers: [
     TodosApiService,

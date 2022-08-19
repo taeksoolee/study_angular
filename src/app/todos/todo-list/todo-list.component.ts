@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Todo } from 'src/app/interfaces/todo';
+import { Todo } from 'src/app/shared/interfaces/todo';
 import { TodosApiService } from 'src/app/shared/todos-api.service';
 
 @Component({

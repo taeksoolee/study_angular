@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, throwError } from 'rxjs';
-import { Todo } from '../interfaces/todo';
+import { Todo } from './interfaces/todo';
 import { retry, catchError } from 'rxjs/operators';
 import { ApiServiceBase } from './classes/ApiServiceBase';
 

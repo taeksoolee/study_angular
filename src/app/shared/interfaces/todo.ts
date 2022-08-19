@@ -4,3 +4,5 @@ export interface Todo {
   description: string,
   done: boolean,
 }
+
+export type TodoForFormEvent = Omit<Todo, 'id' | 'done'>;

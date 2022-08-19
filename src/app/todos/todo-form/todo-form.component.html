@@ -1,10 +1,10 @@
-<form *ngIf="todoForm !== null" [formGroup]="todoForm" (ngSubmit)="handleSubmit()">
+<form [formGroup]="todoForm" (ngSubmit)="handleSubmit()">
   <div>
     <label for="title">title</label>
     <input id="title" formControlName="title" />
     <div *ngIf="title.invalid">
       <div *ngIf="title.errors.required">필수항목</div>
-      <div *ngIf="title.  errors.maxlength">최대 글자제한: {{title.errors.maxlength.requiredLength}}</div>
+      <div *ngIf="title.errors.maxlength">최대 글자제한: {{title.errors.maxlength.requiredLength}}</div>
     </div>
   </div>
   <div>
@@ -16,6 +16,14 @@
     </div>
   </div>
   <div>
-    <button type="submit">Modify</button>
+    <button type="submit" #submitButton>
+      <span #submitText>
+        <ng-content select="[buttonText]"></ng-content>
+      </span>
+      <span *ngIf="submitText.childNodes.length === 0">
+        Submit
+      </span>
+    </button>
+    
   </div>
 </form>

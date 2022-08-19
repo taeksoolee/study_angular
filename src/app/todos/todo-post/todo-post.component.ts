@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodosApiService } from 'src/app/shared/todos-api.service';
 
 @Component({
   selector: 'app-todo-post',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoPostComponent implements OnInit {
 
-  constructor() { }
+  constructor(private todoApi: TodosApiService) { }
 
   ngOnInit(): void {
   }
-
 }
