@@ -1,0 +1,14 @@
+<div *ngIf="shown" class="wrapper">
+  <h4>
+    Todo Detail
+    <button (click)="close();" class="close-btn">close</button>
+  </h4>
+
+  <div *ngIf="todo === null">
+    <div>Loading...</div>
+  </div>
+
+  <div *ngIf="todo !== null">
+    <app-todo-form [todoForm]="todoForm"></app-todo-form>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <div class="info" [ngClass]="{selected: selected}" (click)="select()">
+    <div>{{idx}}</div>
+    <div>{{item.title}}</div>
+    <!-- <div>{{item.description}}</div> -->
+  </div>
+  <button (click)="handleClickExitBtn();" [disabled]="deleted">X</button>
+</div>
