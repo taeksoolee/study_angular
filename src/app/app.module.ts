@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { TodosModule } from './todos/todos.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StyledModule } from './styled/styled.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    TodosModule
+    StyledModule,
+    TodosModule,
   ],
   bootstrap: [AppComponent]
 })

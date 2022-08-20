@@ -4,7 +4,7 @@ import { Todo } from 'src/app/shared/interfaces/todo';
 import { TodosApiService } from 'src/app/shared/todos-api.service';
 
 @Component({
-  selector: 'app-todo-list',
+  selector: 'todos-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss']
 })

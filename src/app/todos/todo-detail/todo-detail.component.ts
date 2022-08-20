@@ -5,7 +5,7 @@ import { TodosApiService } from 'src/app/shared/todos-api.service';
 import { TodosStoreService } from 'src/app/shared/todos-store.service';
 
 @Component({
-  selector: 'app-todo-detail',
+  selector: 'todos-todo-detail',
   templateUrl: './todo-detail.component.html',
   styleUrls: ['./todo-detail.component.scss']
 })

@@ -7,9 +7,9 @@
 </div>
 
 <div *ngFor="let todo of todos; let i = index">
-  <app-todo-item
+  <todos-todo-item
     :key="i"
     [idx]="i + 1"
     [item]="todo"
-  ></app-todo-item>
+  ></todos-todo-item>
 </div>

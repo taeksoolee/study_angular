@@ -8,17 +8,25 @@ import { TodosStoreService } from '../shared/todos-store.service';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TodoPostComponent } from './todo-post/todo-post.component';
-import { TodoFormComponent } from './todo-form/todo-form.component';
-import { TodoExamComponent } from './todo-exam/todo-exam.component';
-import { TodoFormModifyComponent } from './todo-form-modify/todo-form-modify.component';
-import { TodoFormCreateComponent } from './todo-form-create/todo-form-create.component';
+import { FormComponent } from './form/form.component';
+import { FormCreateComponent } from './form-create/form-create.component';
+import { FormModifyComponent } from './form-modify/form-modify.component';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
   ],
-  declarations: [TodoItemComponent, TodosPageComponent, TodoListComponent, TodoDetailComponent, TodoPostComponent, TodoFormComponent, TodoExamComponent, TodoFormModifyComponent, TodoFormCreateComponent],
+  declarations: [
+    TodosPageComponent,
+    TodoItemComponent, 
+    TodoListComponent, 
+    TodoDetailComponent, 
+    TodoPostComponent, 
+    FormComponent, 
+    FormCreateComponent, 
+    FormModifyComponent
+  ],
   exports: [TodosPageComponent],
   providers: [
     TodosApiService,

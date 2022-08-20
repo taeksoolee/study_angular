@@ -3,11 +3,11 @@ import { TodoForFormEvent } from 'src/app/shared/interfaces/todo';
 import { TodosApiService } from 'src/app/shared/todos-api.service';
 
 @Component({
-  selector: 'app-todo-form-create',
-  templateUrl: './todo-form-create.component.html',
-  styleUrls: ['./todo-form-create.component.scss']
+  selector: 'todos-form-create',
+  templateUrl: './form-create.component.html',
+  styleUrls: ['./form-create.component.scss']
 })
-export class TodoFormCreateComponent implements OnInit {
+export class FormCreateComponent implements OnInit {
   constructor(private todosApi: TodosApiService) { }
 
   ngOnInit() { }

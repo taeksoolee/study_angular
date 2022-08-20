@@ -1,13 +1,13 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Todo, TodoForFormEvent } from 'src/app/shared/interfaces/todo';
 import { TodosApiService } from 'src/app/shared/todos-api.service';
 
 @Component({
-  selector: 'app-todo-form-modify',
-  templateUrl: './todo-form-modify.component.html',
-  styleUrls: ['./todo-form-modify.component.scss']
+  selector: 'todos-form-modify',
+  templateUrl: './form-modify.component.html',
+  styleUrls: ['./form-modify.component.scss']
 })
-export class TodoFormModifyComponent implements OnInit, OnChanges {
+export class FormModifyComponent implements OnInit {
   @Input() todoId: number;
   todo: Todo | null = null;
 
