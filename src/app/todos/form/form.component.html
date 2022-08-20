@@ -16,13 +16,11 @@
     </div>
   </div>
   <div>
-    <button type="submit" #submitButton>
-      <span #submitText>
-        <ng-content select="[buttonText]"></ng-content>
-      </span>
-      <span *ngIf="submitText.childNodes.length === 0">
-        Submit
-      </span>
-    </button>
+    <styled-primary-button type="submit" *ngIf="buttonText !== ''">
+      <ng-container>{{buttonText}}</ng-container>
+    </styled-primary-button>
+    <styled-primary-button type="submit" *ngIf="buttonText === ''">
+      <ng-container>Submit</ng-container>
+    </styled-primary-button>
   </div>
 </form>

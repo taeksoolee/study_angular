@@ -1,11 +1,18 @@
-<h2>Todos</h2>
-
+<styled-title>
+  <span h1>Todos</span>
+</styled-title>
 <main>
-  <section>
-    <todos-todo-list></todos-todo-list>
-  </section>
-  <section>
-    <todos-todo-detail></todos-todo-detail>
-    <todos-todo-post></todos-todo-post>
-  </section>
+  <div class="inline-box w-[300px] h-96">
+    <styled-card-container>
+      <todos-todo-list></todos-todo-list>
+    </styled-card-container>
+  </div>
+  <div>
+
+  </div>
+  <div class="inline-block w-[400px] h-96">
+    <styled-card-container>
+      <todos-todo-detail></todos-todo-detail>
+    </styled-card-container>
+  </div>
 </main>

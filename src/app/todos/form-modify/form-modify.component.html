@@ -2,6 +2,8 @@
   <div>Loading...</div>
 </div>
 
-<todos-form *ngIf="shown" [todo]="todo" (form-submit)="handleSubmit($event)">
-  <span #buttonText>Modify</span>
-</todos-form>
+<todos-form 
+  *ngIf="shown"
+  (form-submit)="handleSubmit($event)"
+  buttonText="Modify"
+></todos-form>

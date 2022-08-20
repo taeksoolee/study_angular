@@ -8,6 +8,8 @@ import { Todo, TodoForFormEvent } from 'src/app/shared/interfaces/todo';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit, OnChanges {
+  @Input() buttonText: string = '';
+
   @Input() todo?: Todo;
   @Output('form-submit') submit: EventEmitter<TodoForFormEvent> = new EventEmitter();
 
@@ -31,7 +33,7 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes) {
-    const todo = changes.todo.currentValue as Todo;
+    const todo = changes.todo?.currentValue as Todo;
     if(todo) {
       this.title.setValue(todo.title);
       this.description.setValue(todo.description);

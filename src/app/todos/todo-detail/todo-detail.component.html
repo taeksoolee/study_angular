@@ -7,3 +7,13 @@
   *ngIf="shown" 
   [todoId]="selectedTodoId"
 ></todos-form-modify >
+
+<h4 *ngIf="!shown">
+  Create Todo
+  <button (click)="close();" class="close-btn">close</button>
+</h4>
+
+<todos-form-create
+  *ngIf="!shown" 
+  [todoId]="selectedTodoId"
+></todos-form-create >
