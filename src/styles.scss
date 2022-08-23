@@ -1,11 +1,72 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-/* You can add global styles to this file, and also import other style files */
-// @tailwind base;
-// @tailwind components;
-// @tailwind utilities;
-
+/*
+  declare classes about elements
+*/
 body {
-  @apply bg-slate-50
+  @apply 
+    bg-slate-50 mx-auto w-fit
+    sm:w-[642px];
+}
+
+h1 {
+  @apply text-3xl text-center sm:text-left mt-5 mb-7;
+}
+
+h2 {
+  @apply text-2xl text-center sm:text-left mt-4 mb-6;
+}
+
+h3 {
+  @apply text-xl text-center sm:text-left mt-3 mb-5;
+}
+
+h4 {
+  @apply text-lg text-center sm:text-left mt-2 mb-4;
+}
+
+h5 {
+  @apply text-sm text-center sm:text-left mt-1 mb-3;
+}
+
+h6 {
+  @apply text-xs text-center sm:text-left mt-0 mb-2;
+}
+
+input {
+  @apply 
+    border border-slate-200 w-full px-2
+    focus:border-slate-400 focus:outline-none;
+  
+  &.error {
+    @apply border-red-500;
+  }
+}
+
+/*
+  declare classes about containers
+*/
+.card-container {
+  @apply
+    max-w-sm rounded overflow-hidden shadow-lg bg-white
+    p-5 overflow-y-scroll;
+}
+
+/*
+  declare classes about buttons
+*/
+.primary-button {
+  @apply 
+    bg-sky-300 p-2 text-white rounded-lg w-full
+    cursor-pointer hover:bg-sky-600;
+
+  &[disabled] {
+    @apply bg-slate-100 text-slate-400 cursor-auto;
+  }
+}
+
+.icon-button {
+  @apply 
+    rounded-3xl bg-slate-600 text-slate-100 w-5 h-5 text-sm;
 }

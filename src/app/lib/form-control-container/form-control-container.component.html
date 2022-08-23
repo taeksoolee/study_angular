@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div class="label-container">
+    <label [for]="for">
+      {{control | requirement}}
+      {{label}}
+    </label>
+  </div>
+  <div class="input-container">
+    <ng-content select="[input]"></ng-content>
+  </div>
+  <div class="errors-container">
+    <lib-errors-container
+      [control]="control"></lib-errors-container>
+  </div>
+</div>

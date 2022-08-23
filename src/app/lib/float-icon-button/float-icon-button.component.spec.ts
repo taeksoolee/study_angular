@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TitleComponent } from './title.component';
+import { FloatIconButtonComponent } from './float-icon-button.component';
 
-describe('TitleComponent', () => {
-  let component: TitleComponent;
-  let fixture: ComponentFixture<TitleComponent>;
+describe('FloatIconButtonComponent', () => {
+  let component: FloatIconButtonComponent;
+  let fixture: ComponentFixture<FloatIconButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TitleComponent ]
+      declarations: [ FloatIconButtonComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TitleComponent);
+    fixture = TestBed.createComponent(FloatIconButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

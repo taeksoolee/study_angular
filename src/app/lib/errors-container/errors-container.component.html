@@ -1,0 +1,4 @@
+<div *ngIf="control.dirty && control.invalid" class="wrapper">
+  <div *ngIf=" control.errors.required">Requirement Field Error</div>
+  <div *ngIf="control.errors.maxlength">Max Length Error : {{control.errors.maxlength.actualLength}} / {{control.errors.maxlength.requiredLength}}</div>
+</div>
