@@ -4,7 +4,6 @@ import { ErrorsContainerComponent } from './errors-container/errors-container.co
 import { FormControlContainerComponent } from './form-control-container/form-control-container.component';
 import { FloatIconButtonComponent } from './float-icon-button/float-icon-button.component';
 import { RequirementPipe } from './requirement.pipe';
-import { DisableButtonPipe } from './disable-button.pipe';
 import { DisabledButtonDirective } from './disabled-button.directive';
 
 @NgModule({
@@ -13,7 +12,6 @@ import { DisabledButtonDirective } from './disabled-button.directive';
     FormControlContainerComponent,
     FloatIconButtonComponent,
     RequirementPipe,
-    DisableButtonPipe,
     DisabledButtonDirective,
   ],
   imports: [
@@ -23,7 +21,6 @@ import { DisabledButtonDirective } from './disabled-button.directive';
     ErrorsContainerComponent,
     FormControlContainerComponent,
     FloatIconButtonComponent,
-    DisableButtonPipe,
     DisabledButtonDirective,
   ]
 })
