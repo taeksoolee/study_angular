@@ -1,26 +1,26 @@
 <form [formGroup]="todoForm" (ngSubmit)="handleSubmit()">
+  <lib-form-control-container for="title" label="Title" [control]="title">
+    <input input 
+      id="title" formControlName="title" 
+      [ngClass]="{error: title.dirty && title.invalid}" />
+  </lib-form-control-container>
+  <lib-form-control-container for="description" label="Description" [control]="description">
+    <input input 
+      id="description" formControlName="description" 
+      [ngClass]="{error: description.dirty && description.invalid}" />
+  </lib-form-control-container>
   <div>
-    <label for="title">title</label>
-    <input id="title" formControlName="title" />
-    <div *ngIf="title.invalid">
-      <div *ngIf="title.errors.required">필수항목</div>
-      <div *ngIf="title.errors.maxlength">최대 글자제한: {{title.errors.maxlength.requiredLength}}</div>
-    </div>
-  </div>
-  <div>
-    <label for="description">description</label>
-    <input id="description" formControlName="description" />
-    <div *ngIf="description.invalid">
-      <div *ngIf="description.errors.required">필수항목</div>
-      <div *ngIf="description.errors.maxlength">최대 글자제한: {{title.errors.maxlength.requiredLength}}</div>
-    </div>
-  </div>
-  <div>
-    <styled-primary-button type="submit" *ngIf="buttonText !== ''">
-      <ng-container>{{buttonText}}</ng-container>
-    </styled-primary-button>
-    <styled-primary-button type="submit" *ngIf="buttonText === ''">
-      <ng-container>Submit</ng-container>
-    </styled-primary-button>
+    <button type="submit" 
+      *ngIf="!!buttonText" 
+      class="primary-button" 
+      disabledButton [controls]="[title, description]">
+      {{buttonText}}
+    </button>
+    <button type="submit" 
+      *ngIf="!buttonText" 
+      class="primary-button"
+      [disabled]="!((title.dirty || description.dirty) && (!title.invalid && !description.invalid))">
+      Submit
+    </button>
   </div>
 </form>

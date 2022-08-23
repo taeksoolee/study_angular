@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, throwError } from 'rxjs';
-import { Todo } from './interfaces/todo';
+import { Todo, TodoForUpdate, TodoForUpdateDone } from './interfaces/todo';
 import { retry, catchError } from 'rxjs/operators';
 import { ApiServiceBase } from './classes/ApiServiceBase';
 
@@ -37,7 +37,7 @@ export class TodosApiService extends ApiServiceBase {
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  updateTodo(id, todo: Omit<Todo, 'id'>): Observable<Todo> {
+  updateTodo(id: number, todo: TodoForUpdate): Observable<Todo> {
     return this.http
       .put<Todo>(
         this.apiURL + '/todos/' + id,

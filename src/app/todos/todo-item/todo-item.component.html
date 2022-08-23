@@ -1,8 +1,14 @@
-<div class="wrapper">
-  <div class="info" [ngClass]="{selected: selected}" (click)="select()">
-    <div>{{idx}}</div>
-    <div>{{item.title}}</div>
+<div class="wrapper" [ngClass]="{selected: selected}" (click)="select()">
+  <div class="info">
+    <div>
+      <!-- {{idx}} -->
+      <input type="checkbox" [formControl]="doneControl" (click)="$event.stopPropagation();" />
+    </div>
+    <div class="title">
+      <span *ngIf="!done">{{item.title}}</span>
+      <del *ngIf="done" class="done">{{item.title}}</del>
+    </div>
     <!-- <div>{{item.description}}</div> -->
   </div>
-  <button (click)="handleClickExitBtn();" [disabled]="deleted">X</button>
+  <button (click)="handleClickExitBtn($event);" [disabled]="deleted" class="icon-button">X</button>
 </div>

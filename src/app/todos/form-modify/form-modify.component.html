@@ -1,9 +1,11 @@
-<div *ngIf="shown">
+<ng-container *ngIf="!isLoading">
   <div>Loading...</div>
-</div>
+</ng-container>
 
-<todos-form 
-  *ngIf="shown"
-  (form-submit)="handleSubmit($event)"
-  buttonText="Modify"
-></todos-form>
+<!-- <ng-template [ngIf]="isLoading"> -->
+  <todos-form 
+    [todo]="todo"
+    (formSubmit)="handleSubmit($event)"
+    buttonText="Modify"
+  ></todos-form>
+<!-- </ng-template> -->

@@ -1,19 +1,22 @@
-<h4 *ngIf="shown">
-  Todo Detail
-  <button (click)="close();" class="close-btn">close</button>
-</h4>
+<ng-template [ngIf]="isDetail">
+  <h3>
+    Todo Detail
+    <lib-float-icon-button 
+      float="right"
+      (click)="close()"
+    >X</lib-float-icon-button>
+  </h3>
+  <todos-form-modify
+    [todoId]="selectedTodoId"
+    (afterSubmit)="handleAfterSubmit();"
+  ></todos-form-modify >
+</ng-template>
 
-<todos-form-modify 
-  *ngIf="shown" 
-  [todoId]="selectedTodoId"
-></todos-form-modify >
-
-<h4 *ngIf="!shown">
-  Create Todo
-  <button (click)="close();" class="close-btn">close</button>
-</h4>
-
-<todos-form-create
-  *ngIf="!shown" 
-  [todoId]="selectedTodoId"
-></todos-form-create >
+<ng-template [ngIf]="!isDetail">
+  <h3>
+    Create Todo
+  </h3>
+  <todos-form-create
+    (afterSubmit)="handleAfterSubmit();"
+  ></todos-form-create >
+</ng-template>

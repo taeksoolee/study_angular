@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Todo, TodoForFormEvent } from 'src/app/shared/interfaces/todo';
 
 @Component({
@@ -9,14 +9,10 @@ import { Todo, TodoForFormEvent } from 'src/app/shared/interfaces/todo';
 })
 export class FormComponent implements OnInit, OnChanges {
   @Input() buttonText: string = '';
+  @Input() todo?: Todo | null = null;
+  @Output('formSubmit') submit: EventEmitter<TodoForFormEvent> = new EventEmitter();
 
-  @Input() todo?: Todo;
-  @Output('form-submit') submit: EventEmitter<TodoForFormEvent> = new EventEmitter();
-
-  todoForm = new FormGroup({
-    title: new FormControl('', [Validators.required, Validators.maxLength(20)]),
-    description: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-  });
+  todoForm: FormGroup | null = null;
 
   constructor() { }
 
@@ -29,23 +25,32 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    
+    this.initTodoForm();
   }
 
-  ngOnChanges(changes) {
-    const todo = changes.todo?.currentValue as Todo;
-    if(todo) {
-      this.title.setValue(todo.title);
-      this.description.setValue(todo.description);
+  ngOnChanges(_: SimpleChanges) {
+    if(this.todo) {
+      this.title.setValue(this.todo.title);
+      this.description.setValue(this.todo.description);
     }
   }
 
+  initTodoForm() {
+    this.todoForm = new FormGroup({
+      title: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+      description: new FormControl('', [Validators.maxLength(50)]),
+    });
+  }
+
   handleSubmit() {
-    this.todoForm.value
     this.submit.emit({
       title: this.title.value,
       description: this.description.value,
     });
+    this.resetTodoForm();
   }
 
+  resetTodoForm() {
+    this.initTodoForm();
+  }
 }

@@ -11,13 +11,13 @@ import { TodoPostComponent } from './todo-post/todo-post.component';
 import { FormComponent } from './form/form.component';
 import { FormCreateComponent } from './form-create/form-create.component';
 import { FormModifyComponent } from './form-modify/form-modify.component';
-import { StyledModule } from '../styled/styled.module';
+import { LibModule } from '../lib/lib.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    StyledModule,
+    LibModule,
   ],
   declarations: [
     TodosPageComponent,

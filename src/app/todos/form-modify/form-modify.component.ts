@@ -1,27 +1,29 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Todo, TodoForFormEvent } from 'src/app/shared/interfaces/todo';
 import { TodosApiService } from 'src/app/shared/todos-api.service';
+import { TodosStoreService } from 'src/app/shared/todos-store.service';
 
 @Component({
   selector: 'todos-form-modify',
   templateUrl: './form-modify.component.html',
   styleUrls: ['./form-modify.component.scss']
 })
-export class FormModifyComponent implements OnInit {
+export class FormModifyComponent implements OnInit, OnChanges {
+  @Output() afterSubmit = new EventEmitter();
+
   @Input() todoId: number;
   todo: Todo | null = null;
+  
+  constructor(private todosApi: TodosApiService, private todosStore: TodosStoreService) { }
 
-  constructor(private todosApi: TodosApiService) { }
-
-  get shown() {
+  get isLoading() {
     return this.todo !== null;
   }
 
   ngOnInit() {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    const todoId = changes.todoId.currentValue;
-    this.setTodo(todoId);
+  ngOnChanges(_: SimpleChanges): void {
+    this.setTodo(this.todoId);
   }
 
   setTodo(id: number) {;
@@ -42,7 +44,9 @@ export class FormModifyComponent implements OnInit {
       done: false,
     }).subscribe(data => {
       if(data?.id) {
+        this.afterSubmit.emit(true);
         this.todosApi.refresh.next(true);
+        this.todosStore.submitedTodoForm.next(true);
       }
     });
   }

@@ -7,4 +7,5 @@ import { Subject } from 'rxjs';
 export class TodosStoreService {
   constructor() { }
   selectedTodoId = new Subject<number>();
+  submitedTodoForm = new Subject<boolean>();
 }

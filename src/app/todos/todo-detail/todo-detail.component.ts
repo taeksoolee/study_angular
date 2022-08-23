@@ -1,7 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Todo, TodoForFormEvent } from 'src/app/shared/interfaces/todo';
-import { TodosApiService } from 'src/app/shared/todos-api.service';
 import { TodosStoreService } from 'src/app/shared/todos-store.service';
 
 @Component({
@@ -15,7 +13,7 @@ export class TodoDetailComponent implements OnInit, OnDestroy {
 
   constructor(private todosStore: TodosStoreService) { }
 
-  get shown() {
+  get isDetail() {
     return this.selectedTodoId > 0;
   }
 
@@ -29,5 +27,9 @@ export class TodoDetailComponent implements OnInit, OnDestroy {
 
   close() {
     this.todosStore.selectedTodoId.next(0);
+  }
+
+  handleAfterSubmit() {
+    console.log('handleAfterSubmit');
   }
 }

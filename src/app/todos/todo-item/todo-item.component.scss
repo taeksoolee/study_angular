@@ -1,31 +1,23 @@
 .wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  @apply flex justify-between items-center align-baseline px-2;
 
   .info {
-    display: flex;
-    gap: 10px;
+    @apply flex flex-1 gap-2 my-3;
 
-    margin: {
-      top: 10px;
-      bottom: 10px;
-    }
-
-    &.selected {
-      color: skyblue;
-    }
-
-    :first-child {
-      &::after {
-        content: ",";
-        margin-right: 5px;
+    .title {
+      @apply inline-block flex-1 cursor-pointer hover:text-sky-300;
+      .done {
+        @apply text-red-500;
       }
     }
+  }
 
-    cursor: pointer;
-    &:hover {
-      color: skyblue;
+  &.selected {
+    @apply bg-sky-300 text-white;
+    .info {
+      .title {
+        @apply hover:text-sky-100;
+      }
     }
   }
 }
